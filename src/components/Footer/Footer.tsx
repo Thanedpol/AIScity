@@ -85,17 +85,17 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin size={18} className="text-gray-400 mr-2 mt-1 flex-shrink-0" />
                 <span className="text-gray-400">
-                  1234 Science Avenue, Tech City, TC 98765
+                  512, Bangna-Trad Road, Bangna, Bangna, Bangkok 10260
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="text-gray-400 mr-2 flex-shrink-0" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+66 </span>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="text-gray-400 mr-2 flex-shrink-0" />
                 <a href="mailto:info@aiscity.com" className="text-gray-400 hover:text-white transition-colors">
-                  info@aiscity.com
+                  contacct@aiscity.com
                 </a>
               </li>
             </ul>
