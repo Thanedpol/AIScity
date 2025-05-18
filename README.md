@@ -1,6 +1,6 @@
 # AIScity - Science & Technology News Platform
 
-A modern, feature-rich news platform focused on science and technology, built with React, TypeScript, and Supabase.
+A modern, feature-rich news platform focused on science and technology, built with React and TypeScript.
 
 ## Features
 
@@ -29,9 +29,6 @@ A modern, feature-rich news platform focused on science and technology, built wi
 - **Frontend**: React 18 with TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
-- **Backend**: Supabase
-- **Database**: PostgreSQL (via Supabase)
-- **Authentication**: Supabase Auth
 - **Editor**: TipTap
 - **State Management**: Zustand
 - **Routing**: React Router
@@ -43,7 +40,6 @@ A modern, feature-rich news platform focused on science and technology, built wi
 
 - Node.js 18 or higher
 - npm or yarn
-- Supabase account
 
 ### Installation
 
@@ -58,14 +54,7 @@ cd aiscity
 npm install
 ```
 
-3. Set up environment variables:
-Create a `.env` file in the root directory with the following variables:
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-4. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
@@ -110,7 +99,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- [Supabase](https://supabase.io/) for backend services
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [Lucide](https://lucide.dev/) for icons
 - [TipTap](https://tiptap.dev/) for rich text editing

@@ -1,10 +1,19 @@
 import { useState } from 'react';
-import { supabase, queryBuilder } from '../lib/supabase';
-import { Database } from '../types/supabase';
 
-type Article = Database['public']['Tables']['articles']['Row'];
-type ArticleInsert = Database['public']['Tables']['articles']['Insert'];
-type ArticleUpdate = Database['public']['Tables']['articles']['Update'];
+export interface Article {
+  id: string;
+  title: string;
+  content: string;
+  summary: string;
+  imageUrl: string;
+  status: 'draft' | 'published' | 'archived';
+  references: string[];
+  tags: string[];
+  authorId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string | null;
+}
 
 export function useArticles() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,12 +22,8 @@ export function useArticles() {
   const getArticles = async () => {
     setIsLoading(true);
     try {
-      return await queryBuilder(
-        supabase
-          .from('articles')
-          .select('*')
-          .order('created_at', { ascending: false })
-      );
+      // Implement your own data fetching logic here
+      return [];
     } catch (err) {
       setError(err as Error);
       throw err;
@@ -30,13 +35,8 @@ export function useArticles() {
   const getArticle = async (id: string) => {
     setIsLoading(true);
     try {
-      return await queryBuilder(
-        supabase
-          .from('articles')
-          .select('*')
-          .eq('id', id)
-          .single()
-      );
+      // Implement your own data fetching logic here
+      return null;
     } catch (err) {
       setError(err as Error);
       throw err;
@@ -45,16 +45,11 @@ export function useArticles() {
     }
   };
 
-  const createArticle = async (article: ArticleInsert) => {
+  const createArticle = async (article: Partial<Article>) => {
     setIsLoading(true);
     try {
-      return await queryBuilder(
-        supabase
-          .from('articles')
-          .insert(article)
-          .select()
-          .single()
-      );
+      // Implement your own data creation logic here
+      return null;
     } catch (err) {
       setError(err as Error);
       throw err;
@@ -63,17 +58,11 @@ export function useArticles() {
     }
   };
 
-  const updateArticle = async (id: string, updates: ArticleUpdate) => {
+  const updateArticle = async (id: string, updates: Partial<Article>) => {
     setIsLoading(true);
     try {
-      return await queryBuilder(
-        supabase
-          .from('articles')
-          .update(updates)
-          .eq('id', id)
-          .select()
-          .single()
-      );
+      // Implement your own data update logic here
+      return null;
     } catch (err) {
       setError(err as Error);
       throw err;
@@ -85,12 +74,7 @@ export function useArticles() {
   const deleteArticle = async (id: string) => {
     setIsLoading(true);
     try {
-      await queryBuilder(
-        supabase
-          .from('articles')
-          .delete()
-          .eq('id', id)
-      );
+      // Implement your own data deletion logic here
     } catch (err) {
       setError(err as Error);
       throw err;

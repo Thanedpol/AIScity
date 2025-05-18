@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { supabase } from '../lib/supabase';
 
 interface AuthState {
   user: any | null;
@@ -10,25 +9,12 @@ interface AuthState {
 
 export const useAuth = create<AuthState>((set) => ({
   user: null,
-  isLoading: true,
+  isLoading: false,
   signIn: async (email: string, password: string) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) throw error;
-    set({ user: data.user });
+    // Implement your own authentication logic here
+    set({ user: { email } });
   },
   signOut: async () => {
-    await supabase.auth.signOut();
     set({ user: null });
   },
 }));
-
-// Initialize auth state
-supabase.auth.onAuthStateChange((event, session) => {
-  useAuth.setState({ 
-    user: session?.user ?? null,
-    isLoading: false,
-  });
-});
